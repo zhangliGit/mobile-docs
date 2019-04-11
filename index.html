@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="header">
+    <div class="logo">
+      <img src="./img/logo.png" alt="logo">
+      <div class="logo-text">全品前端</div>
+    </div>
+    <div class="header-menu">
+      <div class="header-menu--hover">
+        <img src="./img/menu.png" alt="" onclick="toggleMenu(event)">
+      </div>
+      <ul id="menuList">
+        <li><a class="active" name="guideSlide" href="/#/guide/index">指南</a></li>
+        <li><a name="cliSlide" href="/#/cli/index">前端脚手架</a></li>
+        <li><a name="componentSlide" href="/#/component/index">UI组件</a></li>
+        <li><a name="standardSlide" href="/#/standard/index">开发规范</a></li>
+      </ul>
+      <div class="header-dialog">
+        <ul id="downList">
+          <li><a name="versionSlide" href="/#/version/index">更新信息</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="app">
+      <div id="homeLoading"></div>
+  </div>
+  <script>
+    var autoSlide = window.sessionStorage.getItem('autoSlide') || 'guideSlide.md';
+    var autoMenu = window.sessionStorage.getItem('autoMenu') || 'guideSlide';
+    var autoActive = document.getElementsByName(autoMenu)[0];
+    var menuL = document.querySelector(".header-menu");
+    var menuA = menuL.querySelectorAll('a');
+    menuL.addEventListener('click', function(e) {
+      if (e.target.nodeName === 'A') {
+        var slideName = '../' + e.target.getAttribute('name') + '.md';
+        window.$docsify.loadSidebar = slideName;
+        window.sessionStorage.setItem('autoSlide', slideName);
+        window.sessionStorage.setItem('autoMenu', e.target.getAttribute('name'));
+        menuActive(e.target)
+      }
+    }, false)
+    function menuActive(el) {
+      for (var i = 0, l = menuA.length; i < l; i++) {
+        menuA[i].className = '';
+      }
+      el.className = 'active';
+    }
+    menuActive(autoActive)
+    /**
+     * @des 点击显示隐藏菜单
+     * 
+     */
+    var dialog = document.querySelector('.header-dialog');
+    var downLength = dialog.querySelectorAll('a').length;
+    var downTag = false;
+    function toggleMenu(event) {
+      event.stopPropagation();
+      if (downTag) {
+        dialog.style.height = '0px';
+      } else {
+        dialog.style.height = downLength * 38 + 'px';
+      }
+      downTag = !downTag;
+    }
+    document.documentElement.addEventListener('click', function(e) {
+      if (downTag) toggleMenu(e);
+    }, false)
+    /**
+     * @des docsify配置
+     * 
+     */
+    window.$docsify = {
+      name: '',
+      repo: 'https://github.com/zhangliGit/mobile-docs',
+      coverpage: true,
+      coverpage: 'cover.md',
+      homepage: './guide/index.md',
+      // themeColor: '#3A4759',
+      loadSidebar: autoSlide,
+      subMaxLevel: 3,
+      autoHeader: false
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+</body>
+
+</html>
