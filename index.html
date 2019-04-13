@@ -20,14 +20,14 @@
         <img src="./img/menu.png" alt="" onclick="toggleMenu(event)">
       </div>
       <ul id="menuList">
-        <li><a class="active" name="guideSlide" href="#/guide/index">指南</a></li>
-        <li><a name="cliSlide" href="#/cli/index">前端脚手架</a></li>
-        <li><a name="componentSlide" href="#/component/index">UI组件</a></li>
-        <li><a name="standardSlide" href="#/standard/index">开发规范</a></li>
+        <li><a class="active" name="guideSlide" href="/#/guide/index">指南</a></li>
+        <li><a name="cliSlide" href="/#/cli/index">前端脚手架</a></li>
+        <li><a name="componentSlide" href="/#/component/index">UI组件</a></li>
+        <li><a name="standardSlide" href="/#/standard/index">开发规范</a></li>
       </ul>
       <div class="header-dialog">
         <ul id="downList">
-          <li><a name="versionSlide" href="#/version/index">更新信息</a></li>
+          <li><a name="versionSlide" href="/#/version/index">更新信息</a></li>
         </ul>
       </div>
     </div>
@@ -36,14 +36,14 @@
       <div id="homeLoading"></div>
   </div>
   <script>
-    var autoSlide = window.sessionStorage.getItem('autoSlide') || '#/guideSlide.md';
+    var autoSlide = window.sessionStorage.getItem('autoSlide') || 'guideSlide.md';
     var autoMenu = window.sessionStorage.getItem('autoMenu') || 'guideSlide';
     var autoActive = document.getElementsByName(autoMenu)[0];
     var menuL = document.querySelector(".header-menu");
     var menuA = menuL.querySelectorAll('a');
     menuL.addEventListener('click', function(e) {
       if (e.target.nodeName === 'A') {
-        var slideName = '../' + e.target.getAttribute('name') + '.md';
+        var slideName = e.target.getAttribute('name') + '.md';
         window.$docsify.loadSidebar = slideName;
         window.sessionStorage.setItem('autoSlide', slideName);
         window.sessionStorage.setItem('autoMenu', e.target.getAttribute('name'));
@@ -82,11 +82,10 @@
      */
     window.$docsify = {
       name: '',
-      repo: 'https://github.com/zhangliGit/qui-docs',
+      repo: 'https://github.com/zhangliGit/qui-docs/#/',
       coverpage: true,
       coverpage: 'cover.md',
-      homepage: './guide/index.md',
-      // themeColor: '#3A4759',
+      homepage: 'guide/index.md',
       loadSidebar: autoSlide,
       subMaxLevel: 3,
       autoHeader: false
