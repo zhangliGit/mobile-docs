@@ -43,7 +43,7 @@
     var menuA = menuL.querySelectorAll('a');
     menuL.addEventListener('click', function(e) {
       if (e.target.nodeName === 'A') {
-        var slideName = e.target.getAttribute('name') + '.md';
+        var slideName = '../' + e.target.getAttribute('name') + '.md';
         window.$docsify.loadSidebar = slideName;
         window.sessionStorage.setItem('autoSlide', slideName);
         window.sessionStorage.setItem('autoMenu', e.target.getAttribute('name'));
