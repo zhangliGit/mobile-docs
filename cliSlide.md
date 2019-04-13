@@ -1,3 +1,1 @@
-* [脚手架](/cli/index.md)
-* webpack
-  * [cli]()
+* 脚手架
