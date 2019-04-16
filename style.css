@@ -51,8 +51,11 @@
   margin-left: 12px;
 }
 .logo-text {
-  font-size:  22px;
+  font-size:  30px;
   float: left;
+}
+.logo-text span {
+  padding-left: 20px;
 }
 .header-menu {
   float: right
