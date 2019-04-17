@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <div id="header">
     <div class="logo">
-      <div class="logo-text">全品<span>Qui</span></div>
+      <div class="logo-text"><span>Qui</span></div>
     </div>
     <div class="header-menu">
       <div class="header-menu--hover">
         <img src="./img/menu.png" alt="" onclick="toggleMenu(event)">
       </div>
       <ul id="menuList">
-        <li><a class="active" name="guideSlide" href="#/guide/index">指南</a></li>
+        <li><a class="active" name="guideSlide" href="#/guide/index">Qui指南</a></li>
         <li><a name="cliSlide" href="#/cli/index">Qui脚手架</a></li>
-        <li><a name="componentSlide" href="#/component/index">Qui组件</a></li>
+        <li><a name="componentSlide" href="#/component/toast">Qui组件</a></li>
         <li><a name="toolSlide" href="#/tool/index">Qui工具库</a></li>
         <li><a name="standardSlide" href="#/standard/index">开发规范</a></li>
         <li><a name="processSlide" href="#/process/index">开发流程</a></li>
@@ -29,7 +29,8 @@
       </ul>
       <div class="header-dialog">
         <ul id="downList">
-          <li><a name="versionSlide" href="#/version/index">更新信息</a></li>
+          <li><a name="shareSlide" href="#/share/vue/respond">技术分享文档</a></li>
+          <li><a name="versionSlide" href="#/version/index">Qui更新信息</a></li>
         </ul>
       </div>
     </div>
@@ -78,6 +79,11 @@
     document.documentElement.addEventListener('click', function(e) {
       if (downTag) toggleMenu(e);
     }, false)
+    window.onload = function() {
+      setTimeout(function() {
+        document.querySelector('.cover-main').querySelector('a').href = '#/guide/index'
+      }, 500)
+    }
     /**
      * @des docsify配置
      * 
@@ -93,7 +99,7 @@
       autoHeader: false
     }
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="https://unpkg.com/docsify/lib/docsify.min.js"></script>
 </body>
 
 </html>
