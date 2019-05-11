@@ -1,3 +1,3 @@
-* [基本规范](/standard/index.md)
+* [目录规范](/standard/index.md)
 * [命名规范](/standard/name.md)
 * [编码规范](/standard/code.md)
