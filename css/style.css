@@ -25,7 +25,15 @@
   from{-webkit-transform:rotate(0deg);}
   to{-webkit-transform:rotate(360deg);}
 }
-
+@font-face {
+  font-family: 'SourceHanSans';
+  src: url('./SourceHanSansCN-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: SourceHanSans
+}
 #header {
   width: 100%;
   height: 60px;
