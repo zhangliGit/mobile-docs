@@ -1,11 +1,6 @@
-### button按钮
+### SubmitForm 表单提交
 
-### input文本框
+> 描述：表单提交
 
-### textarea文本区域
+> 用法：`组件，直接参考SubmitForm组件`
 
-### 单选框
-
-### 复选框
-
-### switch切换
